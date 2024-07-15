@@ -17,3 +17,8 @@ val LightGreen = Color(0xffCCFF99)
 val LightBlue = Color(0xFFE1E1FF)
 val Blue = Color(0xff87CEEB)
 val DarkBlue = Color(0xff448EE4)
+
+// Bm Login Screen
+val DarkRed = Color(0xFFBE3547)
+val NiceRed = Color(0xFFEECFD3)
+val LightGray = Color(0xFF9B9B9B)
