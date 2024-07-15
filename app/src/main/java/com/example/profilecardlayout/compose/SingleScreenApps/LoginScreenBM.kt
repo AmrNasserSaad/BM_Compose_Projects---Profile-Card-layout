@@ -25,6 +25,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -45,7 +46,7 @@ fun LoginScreenBM(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxSize()
-            .padding(top = 32.dp, start = 28.dp, end = 28.dp)
+            .padding(top = 64.dp, start = 28.dp, end = 28.dp)
     ) {
 
         Row(
@@ -63,8 +64,6 @@ fun LoginScreenBM(modifier: Modifier = Modifier) {
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold
             )
-
-
         }
 
         var userNameTextField by remember { mutableStateOf("") }
@@ -82,8 +81,7 @@ fun LoginScreenBM(modifier: Modifier = Modifier) {
                     fontWeight = FontWeight.Bold
                 )
             },
-
-            )
+        )
 
         var passwordTextField by remember { mutableStateOf("") }
         OutlinedTextField(
@@ -112,6 +110,9 @@ fun LoginScreenBM(modifier: Modifier = Modifier) {
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
         )
 
+        val isButtonEnabled = userNameTextField.isNotBlank() && passwordTextField.isNotBlank()
+        val buttonColor = if (isButtonEnabled) DarkRed else NiceRed
+
         Text(
             modifier = modifier
                 .padding(top = 16.dp)
@@ -125,7 +126,7 @@ fun LoginScreenBM(modifier: Modifier = Modifier) {
                 .padding(top = 40.dp)
                 .height(42.dp),
             onClick = { /*TODO*/ },
-            colors = ButtonDefaults.buttonColors(NiceRed),
+            colors = ButtonDefaults.buttonColors(containerColor = buttonColor),
             shape = RoundedCornerShape(size = 8.dp)
         ) {
             Text(
@@ -133,13 +134,13 @@ fun LoginScreenBM(modifier: Modifier = Modifier) {
             )
         }
 
-        Row(modifier = modifier.padding(top = 16.dp, bottom = 32.dp)) {
+        Row(modifier = modifier.padding(top = 16.dp, bottom = 64.dp)) {
             Text(text = stringResource(id = R.string.need_help))
             Text(
                 text = stringResource(id = R.string.contact_us),
                 textDecoration = TextDecoration.Underline,
                 fontWeight = FontWeight.Bold,
-                color = DarkRed
+                color = DarkRed, modifier = modifier.padding(start = 4.dp)
             )
         }
         Box(
@@ -149,79 +150,56 @@ fun LoginScreenBM(modifier: Modifier = Modifier) {
                 .background(LightGray)
         )
 
-        Row {
-            Column(
-                modifier = modifier.padding(top = 24.dp , start = 8.dp , end = 8.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.our_products),
-                    contentDescription = null,
-                    modifier = modifier.size(72.dp)
-                )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ) {
 
-                Text(
-                    text = stringResource(id = R.string.our_products),
-                    fontSize = 12.sp,
-                    textAlign = TextAlign.Center
-                )
-            }
+            ImageWithText(
+                modifier,
+                stringResource(id = R.string.our_products),
+                R.drawable.our_products
+            )
+            ImageWithText(
+                modifier,
+                stringResource(id = R.string.exchange_rate),
+                R.drawable.exchange_rate
+            )
+            ImageWithText(
+                modifier,
+                stringResource(id = R.string.security_tips),
+                R.drawable.security_tips
+            )
+            ImageWithText(
+                modifier,
+                stringResource(id = R.string.nearest_branch_or_atm),
+                R.drawable.nearest_branch_or_atm
+            )
 
-            Column(
-                modifier = modifier.padding(top = 24.dp, start = 8.dp , end = 8.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.exchange_rate),
-                    contentDescription = null,
-                    modifier = modifier.size(72.dp)
-                )
-
-                Text(
-                    text = stringResource(id = R.string.exchange_rate),
-                    fontSize = 12.sp,
-                    textAlign = TextAlign.Center
-                )
-            }
-            Column(
-                modifier = modifier.padding(top = 24.dp, start = 8.dp , end = 8.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.security_tips),
-                    contentDescription = null,
-                    modifier = modifier.size(72.dp)
-                )
-
-                Text(
-                    text = stringResource(id = R.string.security_tips),
-                    fontSize = 12.sp,
-                    textAlign = TextAlign.Center
-                )
-
-            }
-            Column(
-                modifier = modifier.padding(top = 24.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.nearest_branch_or_atm),
-                    contentDescription = null,
-                    modifier = modifier.size(72.dp)
-                )
-
-                Text(
-                    text = stringResource(id = R.string.nearest_branch_or_atm),
-                    fontSize = 12.sp,
-                    textAlign = TextAlign.Center
-                )
-
-            }
         }
+
+    }
+}
+
+@Composable
+private fun ImageWithText(modifier: Modifier, text: String, imgIcon: Int) {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier.padding(top = 24.dp, start = 4.dp, end = 4.dp)
+    ) {
+        Image(
+            painter = painterResource(id = imgIcon),
+            contentDescription = "",
+            modifier = modifier.size(64.dp),
+            contentScale = ContentScale.Fit
+        )
+        Text(
+            text = text,
+            fontWeight = FontWeight.Normal,
+            textAlign = TextAlign.Center,
+            fontSize = 12.sp
+        )
     }
 }
 

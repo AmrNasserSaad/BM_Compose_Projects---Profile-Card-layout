@@ -30,7 +30,7 @@
     <string name="start_over">Start Over</string>
 
     //Bm Login Screen
-    <string name="en">EN</string>
+    <string name="en">العربية</string>
     <string name="user_name">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -40,7 +40,7 @@
     <string name="exchange_rate">Exchange Rate</string>
     <string name="security_tips">Security Tips</string>
     <string name="nearest_branch_or_atm">Nearest Branch or ATM</string>
-    <string name="forget_username_password"><u> Forget username? password?</u></string>
-    <string name="bm_icon">BM Icon</string>
+    <string name="forget_username_password"><u>Forget username? password?</u></string>
+    <string name="bm_icon" translatable="false">BM Icon</string>
 
 </resources>

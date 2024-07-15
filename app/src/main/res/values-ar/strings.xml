@@ -1,4 +1,16 @@
 <resources>
     <string name="amr_nasser">عمرو ناصر</string>
     <string name="android_developer">مطور اندرويد</string>
+
+    <string name="en">EN</string>
+    <string name="user_name">اسم المستخدم</string>
+    <string name="password">كلمة المرور</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="need_help">مزيد من المساعده؟ </string>
+    <string name="contact_us">اتصل بنا</string>
+    <string name="our_products">منتجاتنا</string>
+    <string name="exchange_rate">سعر الصرف</string>
+    <string name="security_tips">نصائح أمنيه</string>
+    <string name="nearest_branch_or_atm">أقرب فرع أو ماكينة صرف ألى </string>
+    <string name="forget_username_password"><u> نسيت اسم المستخدم؟ كلمة المرور؟</u></string>
 </resources>
