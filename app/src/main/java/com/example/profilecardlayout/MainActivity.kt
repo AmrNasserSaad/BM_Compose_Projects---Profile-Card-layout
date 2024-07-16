@@ -4,9 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.profilecardlayout.compose.SingleScreenApps.JokeWithTextAndButton
-import com.example.profilecardlayout.compose.SingleScreenApps.LoginScreenBM
-import com.example.profilecardlayout.compose.apps.TripCalculatorApp.FirstScreen
+import com.example.profilecardlayout.compose.apps.tripCalculatorApp.AppNavHost
 import com.example.profilecardlayout.ui.theme.ProfileCardLayoutTheme
 
 class MainActivity : ComponentActivity() {
@@ -15,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ProfileCardLayoutTheme {
-                FirstScreen()
+                AppNavHost()
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.example.profilecardlayout.compose.apps.TripCalculatorApp
+package com.example.profilecardlayout.compose.apps.tripCalculatorApp
 
 import android.media.MediaPlayer
 import androidx.compose.animation.core.animateOffset
@@ -28,11 +28,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.profilecardlayout.R
+import com.example.profilecardlayout.compose.apps.tripCalculatorApp.AppRoutes.DISTANCE
 import com.example.profilecardlayout.ui.theme.DarkBlue
 
 @Composable
-fun FirstScreen(modifier: Modifier = Modifier) {
+fun FirstScreen(navController: NavController,modifier: Modifier = Modifier) {
 
     // animations
     var isAnimated by remember { mutableStateOf(false) }
@@ -75,6 +78,7 @@ fun FirstScreen(modifier: Modifier = Modifier) {
         Button(
             onClick = {
                 MediaPlayer.create(context, R.raw.car_horn).start()
+                navController.navigate(DISTANCE)
             },
             colors = ButtonDefaults.buttonColors(DarkBlue),
             modifier = modifier.align(Alignment.CenterHorizontally)
@@ -95,5 +99,5 @@ fun FirstScreen(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 private fun FirstScreenPreview() {
-    FirstScreen()
+    FirstScreen(rememberNavController())
 }
