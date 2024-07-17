@@ -1,4 +1,4 @@
-package com.example.profilecardlayout.compose.SingleScreenApps
+package com.example.profilecardlayout.compose.singleScreenApps
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

@@ -1,10 +1,11 @@
 package com.example.profilecardlayout
 
+import AnimalsList
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.profilecardlayout.compose.apps.tripCalculatorApp.AppNavHost
+import com.example.profilecardlayout.compose.apps.endangeredAnimals.data.DataSource
 import com.example.profilecardlayout.ui.theme.ProfileCardLayoutTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +14,25 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ProfileCardLayoutTheme {
-                AppNavHost()
+                // trip app
+                //AppNavHost()
+
+                // Jokes App
+                //JokeWithTextAndButton()
+
+                //Profile Card
+                //  ProfileCard(
+                //  name = "Amr Nasser",
+                //  job = "Android Developer",
+                //  email = "amrnasser@gmail.com",
+                //  phone = "+201025573949"
+                //  )
+
+                //LoginScreenBM
+                //LoginScreenBM()
+
+                // animals list app
+                AnimalsList(animals = DataSource().getAnimalsData())
             }
         }
     }

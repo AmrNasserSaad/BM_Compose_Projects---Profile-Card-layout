@@ -1,4 +1,4 @@
-package com.example.profilecardlayout.compose.SingleScreenApps
+package com.example.profilecardlayout.compose.singleScreenApps
 
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
