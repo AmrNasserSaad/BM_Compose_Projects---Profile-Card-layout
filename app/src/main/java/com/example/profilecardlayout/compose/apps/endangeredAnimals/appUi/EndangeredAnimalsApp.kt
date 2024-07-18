@@ -1,3 +1,4 @@
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -23,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -32,6 +34,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import com.example.profilecardlayout.R
 import com.example.profilecardlayout.compose.apps.endangeredAnimals.data.DataSource
 import com.example.profilecardlayout.compose.apps.endangeredAnimals.model.Animal
@@ -120,11 +123,14 @@ fun AnimalListItem(animal: Animal, modifier: Modifier = Modifier) {
 @Composable
 fun AnimalHelperDialog(animal: Animal, onShowDialogChange: (Boolean) -> Unit) {
 
+    val context = LocalContext.current
     AlertDialog(
         onDismissRequest = { },
         confirmButton = {
             TextButton(onClick = {
                 onShowDialogChange(false)
+                val i = Intent(Intent.ACTION_VIEW, animal.link.toUri())
+                context.startActivity(i)
             }) {
                 Text(text = stringResource(id = R.string.proceed))
             }
