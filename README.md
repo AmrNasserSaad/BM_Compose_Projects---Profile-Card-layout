@@ -1,4 +1,4 @@
-# Trip Photo Album with Compose and Kotlin
+# Projects with Compose and Kotlin
 
 Welcome to my trip photo album! Here, I'll showcase some beautiful moments from my trip using Compose and Kotlin. Each section will provide a brief explanation of the context behind the photos. Enjoy!
 
