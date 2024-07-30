@@ -1,11 +1,10 @@
 package com.example.profilecardlayout
 
-import AnimalsList
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.profilecardlayout.compose.apps.endangeredAnimals.data.DataSource
+import com.example.profilecardlayout.compose.singleScreenApps.JokeWithTextAndButton
 import com.example.profilecardlayout.ui.theme.ProfileCardLayoutTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,7 +31,7 @@ class MainActivity : ComponentActivity() {
                 //LoginScreenBM()
 
                 // animals list app
-                AnimalsList(animals = DataSource().getAnimalsData())
+                // AnimalsList(animals = DataSource().getAnimalsData())
             }
         }
     }

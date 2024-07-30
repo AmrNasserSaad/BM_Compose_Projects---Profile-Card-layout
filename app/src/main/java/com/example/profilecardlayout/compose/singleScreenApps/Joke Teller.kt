@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
@@ -69,17 +70,20 @@ fun JokeWithTextAndButton(modifier: Modifier = Modifier) {
                 )
 
                 var randomJoke by remember { mutableIntStateOf(R.string.jokes_will_appear_here) }
-                Text(
-                    text = stringResource(id = randomJoke),
-                    fontSize = 24.sp,
-                    textAlign = TextAlign.Center,
-                    style = TextStyle(
-                        brush = Brush.horizontalGradient(
-                            listOf(Blue, DarkBlue)
+                SelectionContainer {
+                    Text(
+                        text = stringResource(id = randomJoke),
+                        fontSize = 24.sp,
+                        textAlign = TextAlign.Center,
+                        style = TextStyle(
+                            brush = Brush.horizontalGradient(
+                                listOf(Blue, DarkBlue)
+                            )
                         )
-                    )
 
-                )
+                    )
+                }
+
                 TextButton(
                     onClick = {
                         randomJoke = jokes.random()
