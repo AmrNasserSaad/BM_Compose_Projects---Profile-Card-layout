@@ -24,3 +24,5 @@ val LightGray = Color(0xFF9B9B9B)
 
 
 val CatskillWhite =  Color(0xFFE2EDF3)
+
+val RedP300 = Color(0xFF871E35)
