@@ -2,7 +2,7 @@
 
 Welcome to my trip photo album! Here, I'll showcase some beautiful moments from my trip using Compose and Kotlin. Each section will provide a brief explanation of the context behind the photos. Enjoy!
 
-## Scenic Views
+## Scenic Views 
 
 ### Majestic Mountains and Sunset Over the Valley
 
